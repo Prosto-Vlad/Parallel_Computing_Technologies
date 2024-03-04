@@ -3,20 +3,6 @@ import java.awt.Graphics2D;
 import java.awt.Color;
 import java.awt.geom.Ellipse2D;
 import java.util.Random;
-import javax.swing.JFrame;
-
-public class Main {
-    public static void main(String[] args) {
-        // Створюємо екземпляр BounceFrame
-        BounceFrame frame = new BounceFrame();
-
-        // Встановлюємо режим закриття для вікна
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-        // Встановлюємо видимість вікна
-        frame.setVisible(true);
-    }
-}
 
 class Ball {
     private Component canvas;
@@ -46,7 +32,7 @@ class Ball {
     }
 
     public void draw (Graphics2D g2){
-        g2.setColor(Color.darkGray);
+        g2.setColor(Color.red);
         g2.fill(new Ellipse2D.Double(x,y,XSIZE,YSIZE));
 
     }

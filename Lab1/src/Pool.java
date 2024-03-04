@@ -3,7 +3,7 @@ import java.awt.geom.Ellipse2D;
 
 public class Pool {
     private Component canvas;
-    private double Radius = 15;
+    private double Radius = 20;
     private double X;
     private double Y;
     public Pool(){

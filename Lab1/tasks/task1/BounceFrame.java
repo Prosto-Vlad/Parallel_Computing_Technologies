@@ -48,10 +48,7 @@ public class BounceFrame extends JFrame {
 
         content.add(buttonPanel, BorderLayout.SOUTH);
     }
-    private void createPool(double x, double y){
-        Pool p = new Pool(canvas, x, y);
-        canvas.add(p);
-    }
+
     private void createBall(){
         Ball b = new Ball(canvas);
         canvas.add(b);
