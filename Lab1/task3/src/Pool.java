@@ -2,7 +2,6 @@ import java.awt.*;
 import java.awt.geom.Ellipse2D;
 
 public class Pool {
-    private Component canvas;
     private double Radius = 30;
     private double X;
     private double Y;
@@ -10,8 +9,7 @@ public class Pool {
         X = 0;
         Y = 0;
     }
-    public Pool(Component c, double Xcord, double Ycord){
-        this.canvas = c;
+    public Pool(double Xcord, double Ycord){
         X = Xcord;
         Y = Ycord;
     }

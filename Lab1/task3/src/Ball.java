@@ -14,20 +14,16 @@ class Ball {
     private int y= 0;
     private int dx = 2;
     private int dy = 2;
+    private Color color;
 
     private boolean pooled = false;
 
-    public Ball(ProjectCanvas c){
+    public Ball(ProjectCanvas c, Color color){
         this.canvas = c;
-
+        this.color = color;
         System.out.println(canvas.getWidth() + " " + canvas.getHeight());
-        if(Math.random()<0.5){
-            x = new Random().nextInt(this.canvas.getWidth());
-            y = new Random().nextInt(this.canvas.getHeight());
-        }else{
-            x = new Random().nextInt(this.canvas.getWidth());
-            y = new Random().nextInt(this.canvas.getHeight());
-        }
+        x = 400;
+        y = 300;
     }
 
     public static void f(){
@@ -35,7 +31,7 @@ class Ball {
     }
 
     public void draw (Graphics2D g2){
-        g2.setColor(Color.red);
+        g2.setColor(this.color);
         g2.fill(new Ellipse2D.Double(x,y,XSIZE,YSIZE));
 
     }

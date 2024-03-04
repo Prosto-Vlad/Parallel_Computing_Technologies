@@ -2,7 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 
-public class BallCanvas extends JPanel {
+public class ProjectCanvas extends JPanel {
     private ArrayList<Ball> balls = new ArrayList<>();
     private ArrayList<Pool> pools = new ArrayList<>();
 
@@ -24,4 +24,11 @@ public class BallCanvas extends JPanel {
     }
 
     public void add(Pool p) {this.pools.add(p);}
+
+    public ArrayList<Pool> getPools(){
+        return pools;
+    }
+    public synchronized  void delBall(Ball b){
+        balls.remove(b);
+    }
 }

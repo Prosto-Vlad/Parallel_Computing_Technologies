@@ -4,14 +4,14 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class BounceFrame extends JFrame {
-    private ProjectCanvas canvas;
-    public static final int WIDTH = 1200;
-    public static final int HEIGHT = 600;
+    private BallCanvas canvas;
+    public static final int WIDTH = 450;
+    public static final int HEIGHT = 350;
     public static final int COUNT = 100;
     public BounceFrame() {
         this.setSize(WIDTH, HEIGHT);
         this.setTitle("Bounce programm");
-        this.canvas = new ProjectCanvas();
+        this.canvas = new BallCanvas();
         System.out.println("In Frame Thread name = "
                 + Thread.currentThread().getName());
         Container content = this.getContentPane();
@@ -20,24 +20,13 @@ public class BounceFrame extends JFrame {
         buttonPanel.setBackground(Color.lightGray);
         JButton buttonStart = new JButton("Start");
         JButton buttonStop = new JButton("Stop");
-        JLabel labelScore = new JLabel("Score: " + Score.getScore());
 
-        Score.addListener(new ScoreListener() {
-            @Override
-            public void action() {
-                labelScore.setText("Score: " + Score.getScore());
-                labelScore.repaint();
-            }
-        });
+        
 
         buttonStart.addActionListener(new ActionListener() {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                createPool(canvas.getWidth(),canvas.getHeight());
-                createPool(0,0);
-                createPool(canvas.getWidth(),0);
-                createPool(0,canvas.getHeight());
                 for (int i = 0; i < COUNT; i++) {
                     createBall();
                 }
@@ -52,14 +41,10 @@ public class BounceFrame extends JFrame {
         });
         buttonPanel.add(buttonStart);
         buttonPanel.add(buttonStop);
-        buttonPanel.add(labelScore);
 
         content.add(buttonPanel, BorderLayout.SOUTH);
     }
-    private void createPool(double x, double y){
-        Pool p = new Pool(canvas, x, y);
-        canvas.add(p);
-    }
+
     private void createBall(){
         Ball b = new Ball(canvas);
         canvas.add(b);

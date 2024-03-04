@@ -3,11 +3,9 @@ import java.awt.Graphics2D;
 import java.awt.Color;
 import java.awt.geom.Ellipse2D;
 import java.util.Random;
-import java.util.ArrayList;
-import java.lang.Math;
 
 class Ball {
-    private ProjectCanvas canvas;
+    private Component canvas;
     private static final int XSIZE = 10;
     private static final int YSIZE = 10;
     private int x = 0;
@@ -15,17 +13,16 @@ class Ball {
     private int dx = 2;
     private int dy = 2;
 
-    private boolean pooled = false;
 
-    public Ball(ProjectCanvas c){
+    public Ball(Component c){
         this.canvas = c;
 
         System.out.println(canvas.getWidth() + " " + canvas.getHeight());
         if(Math.random()<0.5){
             x = new Random().nextInt(this.canvas.getWidth());
-            y = new Random().nextInt(this.canvas.getHeight());
+            y = 0;
         }else{
-            x = new Random().nextInt(this.canvas.getWidth());
+            x = 0;
             y = new Random().nextInt(this.canvas.getHeight());
         }
     }
@@ -43,18 +40,6 @@ class Ball {
     public void move(){
         x+=dx;
         y+=dy;
-
-        ArrayList<Pool> pools = this.canvas.getPools();
-
-        for(Pool pool : pools) {
-            if ((Math.pow(this.x - pool.GetX(), 2) + Math.pow(this.y - pool.GetY(), 2) < Math.pow(pool.GetRadius(), 2)))
-            {
-                this.pooled = true;
-                canvas.delBall(this);
-                canvas.repaint();
-            }
-        }
-
         if(x<0){
             x = 0;
             dx = -dx;
@@ -72,9 +57,5 @@ class Ball {
             dy = -dy;
         }
         this.canvas.repaint();
-    }
-
-    public boolean isPooled(){
-        return pooled;
     }
 }

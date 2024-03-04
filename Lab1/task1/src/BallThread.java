@@ -11,15 +11,8 @@ public class BallThread extends Thread {
         try{
             for(int i=1; i<10000; i++){
                 b.move();
-
-                if(b.isPooled()){
-                    this.interrupt();
-                    Score.increment();
-                    return;
-                }
-
                 System.out.println("Thread name = "
-                        + Thread.currentThread().getName() + " -- " + b.isPooled());
+                        + Thread.currentThread().getName());
                 Thread.sleep(5);
 
             }

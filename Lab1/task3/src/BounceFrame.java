@@ -7,7 +7,8 @@ public class BounceFrame extends JFrame {
     private ProjectCanvas canvas;
     public static final int WIDTH = 1200;
     public static final int HEIGHT = 600;
-    public static final int COUNT = 100;
+    public static final int COUNT_RED = 1;
+    public static final int COUNT_BLUE = 100;
     public BounceFrame() {
         this.setSize(WIDTH, HEIGHT);
         this.setTitle("Bounce programm");
@@ -38,8 +39,11 @@ public class BounceFrame extends JFrame {
                 createPool(0,0);
                 createPool(canvas.getWidth(),0);
                 createPool(0,canvas.getHeight());
-                for (int i = 0; i < COUNT; i++) {
-                    createBall();
+                for (int i = 0; i < COUNT_RED; i++) {
+                    createRedBall();
+                }
+                for (int i = 0; i < COUNT_BLUE; i++) {
+                    createBlueBall();
                 }
             }
         });
@@ -57,15 +61,27 @@ public class BounceFrame extends JFrame {
         content.add(buttonPanel, BorderLayout.SOUTH);
     }
     private void createPool(double x, double y){
-        Pool p = new Pool(canvas, x, y);
+        Pool p = new Pool(x, y);
         canvas.add(p);
     }
-    private void createBall(){
-        Ball b = new Ball(canvas);
-        canvas.add(b);
+    private void createRedBall(){
+        Ball b = new Ball(canvas, Color.red);
+        canvas.addRed(b);
 
         BallThread thread = new BallThread(b);
         thread.start();
+        thread.setPriority(Thread.MAX_PRIORITY);
+        System.out.println("Thread name = " +
+                thread.getName());
+    }
+
+    private void createBlueBall(){
+        Ball b = new Ball(canvas, Color.blue);
+        canvas.addBlue(b);
+
+        BallThread thread = new BallThread(b);
+        thread.start();
+        thread.setPriority(Thread.MIN_PRIORITY);
         System.out.println("Thread name = " +
                 thread.getName());
     }

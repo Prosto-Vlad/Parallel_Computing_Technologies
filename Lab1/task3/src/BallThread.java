@@ -14,7 +14,6 @@ public class BallThread extends Thread {
 
                 if(b.isPooled()){
                     this.interrupt();
-                    Score.increment();
                     return;
                 }
 
