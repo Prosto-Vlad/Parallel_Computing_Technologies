@@ -44,7 +44,7 @@ public class BounceFrame extends JFrame {
                             }
                             BallThread thread = new BallThread(b);
                             thread.start();
-                            System.out.println("Thread name = " +
+                            System.out.println("Start. Thread name = " +
                                     thread.getName());
                             try {
                                 thread.join();

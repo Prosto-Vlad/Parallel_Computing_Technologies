@@ -5,9 +5,9 @@ import java.awt.event.ActionListener;
 
 public class BounceFrame extends JFrame {
     private ProjectCanvas canvas;
-    public static final int WIDTH = 1200;
+    public static final int WIDTH = 1000;
     public static final int HEIGHT = 600;
-    public static final int COUNT = 100;
+    public static final int COUNT = 1000;
     public BounceFrame() {
         this.setSize(WIDTH, HEIGHT);
         this.setTitle("Bounce programm");
@@ -57,7 +57,7 @@ public class BounceFrame extends JFrame {
         content.add(buttonPanel, BorderLayout.SOUTH);
     }
     private void createPool(double x, double y){
-        Pool p = new Pool(canvas, x, y);
+        Pool p = new Pool(x, y);
         canvas.add(p);
     }
     private void createBall(){

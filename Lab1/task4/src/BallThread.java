@@ -1,4 +1,3 @@
-import java.awt.*;
 
 public class BallThread extends Thread {
     private Ball b;
