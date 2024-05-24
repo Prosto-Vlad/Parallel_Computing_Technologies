@@ -7,7 +7,7 @@ public class BounceFrame extends JFrame {
     private ProjectCanvas canvas;
     public static final int WIDTH = 1000;
     public static final int HEIGHT = 600;
-    public static final int COUNT = 1000;
+    public static final int COUNT = 500;
     public BounceFrame() {
         this.setSize(WIDTH, HEIGHT);
         this.setTitle("Bounce programm");

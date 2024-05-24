@@ -1,46 +1,46 @@
 public class Counter {
     private final static Object lock = new Object();
-    private static  int count = 0;
+    private static int count = 0;
 
     public void increment() {
-        count++;
+        Counter.count++;
     }
 
     public void decrement() {
-        count--;
+        Counter.count--;
     }
 
     public synchronized void incrementMethSync() {
-        count++;
+        Counter.count++;
     }
 
     public synchronized void decrementMethSync() {
-        count--;
+        Counter.count--;
     }
 
     public void incrementBlockSync() {
         synchronized (this) {
-            count++;
+            Counter.count++;
         }
     }
 
     public void decrementBlockSync() {
         synchronized (this) {
-            count--;
+            Counter.count--;
         }
     }
 
     public static void incrementLockSync()
     {
         synchronized (lock) {
-            count++;
+            Counter.count++;
         }
     }
 
     public static void decrementLockSync()
     {
         synchronized (lock) {
-            count--;
+            Counter.count--;
         }
     }
     public int getCount(){

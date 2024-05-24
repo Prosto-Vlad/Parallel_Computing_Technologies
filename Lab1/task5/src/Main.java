@@ -1,19 +1,31 @@
 public class Main {
     public static void main(String[] args) throws InterruptedException
     {
-        ProjectThreads t1 = new ProjectThreads("-");
-        ProjectThreads t2 = new ProjectThreads("|");
+        ThreadsAsync t1 = new ThreadsAsync("-");
+        ThreadsAsync t2 = new ThreadsAsync("|");
         t1.start();
-        t1.join();
         t2.start();
+
+        t1.join();
         t2.join();
 
-        for (int i = 0; i < 100; i++) {
-            for (int j = 0; j < 100; j++) {
-                t1.print();
-                t2.print();
-            }
-            System.out.println();
+
+        System.out.println();
+        for (int j = 0; j < 100; j++) {
+            System.out.print("+");
         }
+        System.out.println();
+        System.out.println();
+
+
+        Synchronize synchronize = new Synchronize();
+        ThreadsSync st1 = new ThreadsSync("|", true, synchronize);
+        ThreadsSync st2 = new ThreadsSync("-", false, synchronize);
+        Thread t3 = new Thread(st1);
+        Thread t4 = new Thread(st2);
+        t3.start();
+        t4.start();
+
+
     }
 }

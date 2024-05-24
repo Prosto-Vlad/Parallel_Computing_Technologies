@@ -1,4 +1,3 @@
-import javax.swing.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -25,7 +24,7 @@ public class Main {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        System.out.println("Final count: " + counter.getCount());
+        System.out.println("Result: " + counter.getCount());
 
         //---------------------------------
         counter.reset();
@@ -51,7 +50,7 @@ public class Main {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        System.out.println("Final count block synchronized: " + counter.getCount());
+        System.out.println("Result block synchronized: " + counter.getCount());
 
         //---------------------------------
 
@@ -78,7 +77,7 @@ public class Main {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        System.out.println("Final count method synchronized: " + counter.getCount());
+        System.out.println("Result method synchronized: " + counter.getCount());
 
         //---------------------------------
 
@@ -105,6 +104,6 @@ public class Main {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        System.out.println("Final count lock synchronized: " + counter.getCount());
+        System.out.println("Result lock synchronized: " + counter.getCount());
     }
 }
